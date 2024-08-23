@@ -1,0 +1,1 @@
+document.getElementById("proof").innerHTML = "Hello World from JavaScript";
