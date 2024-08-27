@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 id="proof"></h1>
-
-    <div class="products-container" id="products-container">
-        <!-- Las tarjetas de productos se cargarán aquí -->
+    <header id="cabecera">
+        <div class="imglogo">
+            <a href="index.html">
+                <img src="Img/logo.png" width="300" height="100" alt="">
+            </a>
+                 <!-- Botón para abrir el carrito -->
+                 <button id="cart-button" onclick="toggleCart()">🛒 Ver Carrito</button>
+        </div>
+    </header>    
+    <!-- Lista de productos -->
+    <div id="product-list"></div>
+    
+    <!-- Ventana del carrito -->
+    <div id="shopping-cart" class="cart hidden">
+        <h2>Carrito de Compras</h2>
+        <div id="cart-content"></div>
+        <button id="checkout-button" onclick="generateInvoice()">Confirmar Compra</button>
     </div>
+    
+    <!-- Factura -->
+    <h2>Factura de Compra</h2>
+<div id="invoice"> </div>
 
-    <script src="main.js"></script>
-    <script src="apiservice.js"></script>
+<button id="continue-button" onclick="continueShopping()">Seguir Comprando</button>
+    <script src="script.js"></script>
+
+    <footer id="footer">
+        <div class="socialMedia">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="Img/Redes sociales/fb-icon.png" alt="" width="50px">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="Img/Redes sociales/instagram.png" alt="" width="50px">
+            </a>
+            <a href="https://www.tiktok.com/es/" target="_blank">
+                <img src="Img/Redes sociales/tik-tok.png" alt="" width="50px">
+            </a>
+       <P> &copy 2024 nos reservamos todos los derechos de autor</P> 
+        </div>
+
+    </footer>
 </body>
 </html>
