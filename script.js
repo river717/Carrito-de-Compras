@@ -21,12 +21,18 @@ async function fetchProducts() {
             
             products.forEach(product => {
                 const productElement = document.createElement('div');
-                productElement.classList.add('product-card');
+                productElement.classList.add('col-md-3', 'mb-4'); 
+        
                 productElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}">
-                    <p>Precio: $${product.price}</p>x
-                    <button onclick="addToCart(${product.id})">Agregar al carrito</button>
-                `;
+                    <div class="card h-100">
+                        <img src="${product.image}" class="card-img-top" alt="${product.title}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${product.title}</h5>
+                            <p class="card-text"><strong>Precio: $${product.price}</strong></p>
+                            <button class="btn btn-custom mt-auto" onclick="addToCart(${product.id})">Agregar al carrito</button>
+                        </div>
+                    </div>
+                `;        
                 productList.appendChild(productElement);
             });
         }
@@ -72,34 +78,70 @@ async function fetchProducts() {
             renderCart();
         }
         
-       function generateInvoice() {
-            const invoiceElement = document.getElementById('invoice');
-            invoiceElement.innerHTML = '';
+        function generateInvoice() {
+            const invoiceContent = document.getElementById('invoiceContent');
+            invoiceContent.innerHTML = '';  // Limpiar el contenido anterior
             let total = 0;
+        
+            invoiceContent.innerHTML += `
+                <h4>Detalle de la compra</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cantidad</th>
+                            <th>Producto</th>
+                            <th>Precio Unitario</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
         
             cart.forEach(item => {
                 const totalItemPrice = item.price * item.quantity;
                 total += totalItemPrice;
-                invoiceElement.innerHTML += `
-                    <p>${item.title} - ${item.quantity} x $${item.price} = $${totalItemPrice}</p>
+                invoiceContent.innerHTML += `
+                    <tr>
+                        <td>${item.quantity}</td>
+                        <td>${item.title}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>$${totalItemPrice.toFixed(2)}</td>
+                    </tr>
                 `;
             });
         
-            const iva = total * 0.13; // IVA
+            const iva = total * 0.13; // IVA del 13%
             const totalWithTax = total + iva;
         
-            invoiceElement.innerHTML += `
-                <h3>Total: $${total}</h3>
-                <h3>IVA (13%): $${iva.toFixed(2)}</h3>
-                <h2>Total con impuesto: $${totalWithTax.toFixed(2)}</h2>
+            invoiceContent.innerHTML += `
+                    </tbody>
+                </table>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <h5>Total antes de IVA:</h5>
+                    <h5>$${total.toFixed(2)}</h5>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h5>IVA (13%):</h5>
+                    <h5>$${iva.toFixed(2)}</h5>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h4>Total con impuesto:</h4>
+                    <h4>$${totalWithTax.toFixed(2)}</h4>
+                </div>
             `;
         
+            // Vaciar el carrito
             cart = [];
             renderCart();
+        
+            // Mostrar el modal de la factura
+            const invoiceModal = new bootstrap.Modal(document.getElementById('invoiceModal'));
+            invoiceModal.show();
         }
         
         function continueShopping() {
-            document.getElementById('invoice').innerHTML = '';
+            document.getElementById('generateInvoice').innerHTML = '';
             renderProducts();
         }
         

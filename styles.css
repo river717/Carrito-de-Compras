@@ -50,45 +50,43 @@ h1, h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 10px;
+    padding: 10px;
+}
+.card {
+    justify-content: space-between;
+    height: 100%;
+    
 }
 
-.product-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 100px;
-    padding: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.card-img-top {
+    max-height: 200px;
+    object-fit: contain;
 }
 
-.product-card img {
-    max-width: 100%;
-    height: 200px;
-    object-fit:contain;
-    border-radius: 8px;
+.card-body {
+    flex: 1 1 auto; 
 }
 
-.product-card h3 {
-    margin: 10px 0;
+.card-text {
+    flex-grow: 1;
 }
 
-.product-card p {
-    color: #555;
-    font-size: 5px;
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
-.product-card button {
-    background-color: #f39c12;
-    position:relative;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
+.card { 
+    min-height: 100px; 
+}
+.btn-custom {
+    color: #f39c12;
+    background-color: #888;
     border-radius: 5px;
+}
+.btn-custom:hover {
+    background-color: aquamarine;
 }
 
 #cart-button {
@@ -178,13 +176,12 @@ h1, h2 {
 .modal {
     display: none; /* Oculto por defecto */
     position: fixed;
-    z-index: 1000;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
 }
 
 .modal-content {
@@ -192,8 +189,8 @@ h1, h2 {
     margin: 15% auto; /* Centrar verticalmente */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Ajusta el tamaño de la ventana */
-    max-width: 500px;
+    width: 100%; /* Ajusta el tamaño de la ventana */
+    max-width: 1000px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -212,3 +209,137 @@ h1, h2 {
     text-decoration: none;
     cursor: pointer;
 }
+/* Estilos específicos para la navbar */
+.navbar {
+    background: linear-gradient(90deg, #f7f7f7 0%, #e0e0e0 100%); /* Fondo con gradiente suave */
+    border-bottom: 2px solid #ccc; /* Borde inferior sutil */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 15px 30px; /* Espaciado interno */
+    display: flex;
+    justify-content: space-between; /* Alinear items al espacio disponible */
+    align-items: center; /* Alinear items verticalmente */
+    margin: 0; /* Eliminar margen para un ajuste preciso */
+    transition: background 0.3s ease; /* Transición suave para el fondo */
+}
+
+.navbar:hover {
+    background: linear-gradient(90deg, #e0e0e0 0%, #f7f7f7 100%); /* Fondo de gradiente al pasar el ratón */
+}
+
+.navbar-brand {
+    color: #000; /* Texto negro */
+    font-size: 1.75rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Mayúsculas */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.navbar-brand:hover {
+    color: #28a745; /* Color verde al pasar el ratón */
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center; /* Alinear items verticalmente */
+}
+.navbar-nav .nav-link:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+.navbar-toggler {
+    border: none; /* Opcional: quitar el borde del toggle */
+    background-color: transparent; /* Fondo transparente para el botón */
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1170/1170678.png'); /* Icono del carrito */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 35px; /* Tamaño del icono aumentado */
+    height: 35px; /* Tamaño del icono aumentado */
+}
+
+/* Estilo para el botón del carrito en el menú */
+#custom-cart-button {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 50%; /* Bordes completamente redondeados */
+    padding: 10px; /* Espaciado interno */
+    color: #000; /* Color del texto */
+    border: 2px solid #ddd; /* Borde sutil */
+    cursor: pointer; /* Cursor de mano al pasar el ratón */
+    display: flex;
+    align-items: center; /* Centrar verticalmente el icono */
+    justify-content: center; /* Centrar horizontalmente el icono */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+#custom-cart-button:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+#custom-cart-button img {
+    width: 20px; /* Ajuste del tamaño del icono */
+    height: 20px; /* Ajuste del tamaño del icono */
+    margin: 0; /* Eliminar margen del icono */
+}
+
+/* Estilos para el footer */
+#footer {
+    background-color: #f7f7f7; /* Fondo gris claro */
+    color: #000; /* Texto negro */
+    padding: 40px 0; /* Espaciado interno */
+    border-top: 1px solid #ddd; /* Línea superior sutil */
+}
+
+.footer-text {
+    font-size: 0.9rem; /* Tamaño de fuente */
+    margin: 0; /* Eliminar margen */
+}
+
+h5 {
+    font-size: 1.25rem; /* Tamaño de fuente para los títulos */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+ul.list-unstyled {
+    padding-left: 0; /* Eliminar relleno izquierdo */
+}
+
+ul.list-unstyled li {
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+ul.list-unstyled a {
+    color: #000; /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+}
+
+ul.list-unstyled a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+.socialMedia {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar los iconos */
+    gap: 15px; /* Espaciado entre iconos */
+}
+
+.social-link {
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transición suave */
+}
+
+.social-icon {
+    width: 30px; /* Tamaño del icono */
+    height: 30px; /* Tamaño del icono */
+}
+
+.social-link:hover .social-icon {
+    transform: scale(1.1); /* Aumentar tamaño del icono al pasar el ratón */
+    filter: brightness(0.8); /* Disminuir brillo al pasar el ratón */
+}
+

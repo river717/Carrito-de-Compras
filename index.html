@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
+    <title>Carrito de Compras - Boutique Express</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="cabecera">
-        <div class="imglogo">
-            <a href="index.html">
-                <img src="Img/logo.png" width="300" height="100" alt="">
-            </a>
-                 <!-- Botón para abrir el carrito -->
-                 <button id="cart-button" onclick="toggleCart()">🛒 Ver Carrito</button>
+    <!-- Navbar modificada con Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f7f7f7;">
+        <a class="navbar-brand" href="#" style="color: #000;">Boutique Express</a>
+        <button class="navbar-toggler" type="button" onclick="toggleCart()" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="nav-link" id="custom-cart-button" onclick="toggleCart()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" width="30" height="30" alt="Carrito de Compras">
+                    </button>
+                </li>
+            </ul>
         </div>
+    </nav>
     </header>   
     <!--Barra de busqueda-->
     <div class="wrapper">
@@ -24,7 +34,11 @@
         </div>
     </div>
     <!-- Lista de productos -->
-    <div id="product-list"></div>
+    <div class="container mt-5">
+        <div id="product-list" class="row">
+        </div>
+    </div>
+    
     
     <!-- Ventana del carrito -->
     <div id="shopping-cart" class="cart hidden">
@@ -34,26 +48,95 @@
     </div>
     
     <!-- Factura -->
-    <h2>Factura de Compra</h2>
-<div id="invoice"> </div>
-
-<button id="continue-button" onclick="continueShopping()">Seguir Comprando</button>
+<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="invoiceModalLabel">Factura</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="invoiceContent">
+        <!-- Aquí se insertará la factura generada -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="continueShopping()">Seguir Comprando</button>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="script.js"></script>
 
     <footer id="footer">
-        <div class="socialMedia">
-            <a href="https://www.facebook.com/" target="_blank">
-                <img src="Img/Redes sociales/fb-icon.png" alt="" width="50px">
-            </a>
-            <a href="https://www.instagram.com/" target="_blank">
-                <img src="Img/Redes sociales/instagram.png" alt="" width="50px">
-            </a>
-            <a href="https://www.tiktok.com/es/" target="_blank">
-                <img src="Img/Redes sociales/tik-tok.png" alt="" width="50px">
-            </a>
-       <P> &copy 2024 nos reservamos todos los derechos de autor</P> 
-        </div>
-
-    </footer>
+      <div class="container py-5">
+          <div class="row">
+              <!-- Contacto -->
+              <div class="col-md-3">
+                  <h5>¿Necesitas ayuda?</h5>
+                  <p>Enviar e-mail</p>
+                  <p>Te responderemos lo antes posible</p>
+              </div>
+              
+              <!-- Información sobre la empresa -->
+              <div class="col-md-3">
+                  <h5>Nosotros</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#">Sobre Boutique Express</a></li>
+                      <li><a href="#">Sostenibilidad</a></li>
+                      <li><a href="#">Trabaja con nosotros</a></li>
+                      <li><a href="#">Prensa</a></li>
+                      <li><a href="#">Nuestras tiendas</a></li>
+                  </ul>
+              </div>
+              
+              <!-- Categorías de productos -->
+              <div class="col-md-3">
+                  <h5>Te puede interesar</h5>
+                  <ul class="list-unstyled">
+                      <li><a href="#">Rebajas en Ropa de Mujer</a></li>
+                      <li><a href="#">Vestidos</a></li>
+                      <li><a href="#">Tops y bodies</a></li>
+                      <li><a href="#">Jeans</a></li>
+                      <li><a href="#">Pantalones</a></li>
+                      <li><a href="#">Camisetas</a></li>
+                  </ul>
+              </div>
+              <!-- Redes sociales -->
+              <div class="col-md-3">
+                  <h5>Síguenos</h5>
+                  <div class="socialMedia">
+                      <a href="https://www.instagram.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram" class="social-icon">
+                      </a>                        
+                      <a href="https://twitter.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="Twitter" class="social-icon">
+                      </a>                        
+                      <a href="https://www.tiktok.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046128.png" alt="TikTok" class="social-icon">
+                      </a>                                             
+                      <a href="https://www.snapchat.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384035.png" alt="Snapchat" class="social-icon">
+                      </a>                        
+                      <a href="https://www.youtube.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube" class="social-icon">
+                      </a>
+                      <a href="https://www.pinterest.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/733/733603.png" alt="Pinterest" class="social-icon">
+                      </a>
+                      <a href="https://open.spotify.com/" target="_blank" class="social-link">
+                          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111767.png" alt="Spotify" class="social-icon">
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="text-center mt-4">
+              <p class="footer-text">&copy; 2024 Boutique Express. Todos los derechos reservados.</p>
+          </div>
+      </div>
+  </footer>
+   <!-- Enlace a Bootstrap JS y dependencias -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
