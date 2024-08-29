@@ -1,7 +1,6 @@
 let products = [];
 let cart = [];
 
-
 // Función para obtener productos desde una API
 async function fetchProducts() {
     try {
@@ -46,7 +45,6 @@ async function fetchProducts() {
             } else {
                 cart.push({ ...product, quantity: 1 });
             }
-        
             renderCart();
         }
         
@@ -69,7 +67,6 @@ async function fetchProducts() {
                 `;
                 cartContent.appendChild(cartItemElement);
             });
-        
             cartContent.innerHTML += `<h3>Total General: $${total}</h3>`;
         }
         
