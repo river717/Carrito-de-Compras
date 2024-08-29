@@ -45,6 +45,7 @@ h1, h2 {
 }
 
 
+
 #product-list {
     display: flex;
     flex-wrap: wrap;
@@ -130,6 +131,22 @@ h1, h2 {
     right: 0; /* Dentro de la pantalla 
     opacity: 1;
 }*/
+
+.wrapper{
+    width: 95%;
+    margin: 0 auto;
+}
+
+#search-container{
+    margin: 1em 0;
+}
+
+#search-container input{
+    background-color: transparent;
+    width: 40%;
+    border-bottom: 2px solid #110f29;
+}
+
 
 #footer{
     display: flex;
