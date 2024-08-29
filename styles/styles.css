@@ -126,6 +126,35 @@ h1, h2 {
     width: 40%;
     border: none;
     border-bottom: 2px solid #110f29;
+    padding: 0.5em 1em;
+    outline: none;
+}
+
+#search-container input:focus{
+    border-bottom-color: #6759ff;
+}
+
+.button-value{
+    padding: 0.5em 1em;
+    margin-left: 1em;
+    background-color: #6759ff;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+#button-categoria{
+    margin: 1em 0;
+    text-align: center;
+}
+
+#button-categoria button{
+    border: 2px solid #6759ff;
+    padding: 1em 2.2em;
+    border-radius: 3em;
+    background-color: transparent;
+    color: #6759ff;
+    cursor: pointer;
 }
 
 /* Estilos generales para el modal */
