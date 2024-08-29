@@ -6,7 +6,7 @@
     <title>Carrito de Compras - Boutique Express</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <!-- Navbar modificada con Bootstrap -->
@@ -44,105 +44,103 @@
         <div id="product-list" class="row">
         </div>
     </div>
-    
-    
     <!-- Ventana del carrito -->
     <div id="shopping-cart" class="cart hidden">
         <h2>Carrito de Compras</h2>
         <div id="cart-content"></div>
         <button id="checkout-button" onclick="generateInvoice()">Confirmar Compra</button>
     </div>
-    
     <!-- Factura -->
-<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="invoiceModalLabel">Factura</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="invoiceContent">
-        <!-- Aquí se insertará la factura generada -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="continueShopping()">Seguir Comprando</button>
-      </div>
+    <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="invoiceModalLabel">Factura</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="invoiceContent">
+            <!-- Aquí se insertará la factura generada -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="continueShopping()">Seguir Comprando</button>
+        </div>
+        </div>
     </div>
-  </div>
-</div>
-    <script src="script.js"></script>
+    </div>
 
+    <!-- Footer -->
     <footer id="footer">
-      <div class="container py-5">
-          <div class="row">
-              <!-- Contacto -->
-              <div class="col-md-3">
-                  <h5>¿Necesitas ayuda?</h5>
-                  <p>Enviar e-mail</p>
-                  <p>Te responderemos lo antes posible</p>
-              </div>
+        <div class="container py-5">
+            <div class="row">
+                <!-- Contacto -->
+                <div class="col-md-3">
+                    <h5>¿Necesitas ayuda?</h5>
+                    <p>Enviar e-mail</p>
+                    <p>Te responderemos lo antes posible</p>
+                </div>
+                <!-- Información sobre la empresa -->
+                <div class="col-md-3">
+                    <h5>Nosotros</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Sobre Boutique Express</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Nuestras tiendas</a></li>
+                    </ul>
+                </div>
               
-              <!-- Información sobre la empresa -->
-              <div class="col-md-3">
-                  <h5>Nosotros</h5>
-                  <ul class="list-unstyled">
-                      <li><a href="#">Sobre Boutique Express</a></li>
-                      <li><a href="#">Sostenibilidad</a></li>
-                      <li><a href="#">Trabaja con nosotros</a></li>
-                      <li><a href="#">Prensa</a></li>
-                      <li><a href="#">Nuestras tiendas</a></li>
-                  </ul>
-              </div>
-              
-              <!-- Categorías de productos -->
-              <div class="col-md-3">
-                  <h5>Te puede interesar</h5>
-                  <ul class="list-unstyled">
-                      <li><a href="#">Rebajas en Ropa de Mujer</a></li>
-                      <li><a href="#">Vestidos</a></li>
-                      <li><a href="#">Tops y bodies</a></li>
-                      <li><a href="#">Jeans</a></li>
-                      <li><a href="#">Pantalones</a></li>
-                      <li><a href="#">Camisetas</a></li>
-                  </ul>
-              </div>
-              <!-- Redes sociales -->
-              <div class="col-md-3">
-                  <h5>Síguenos</h5>
-                  <div class="socialMedia">
-                      <a href="https://www.instagram.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram" class="social-icon">
-                      </a>                        
-                      <a href="https://twitter.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="Twitter" class="social-icon">
-                      </a>                        
-                      <a href="https://www.tiktok.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046128.png" alt="TikTok" class="social-icon">
-                      </a>                                             
-                      <a href="https://www.snapchat.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384035.png" alt="Snapchat" class="social-icon">
-                      </a>                        
-                      <a href="https://www.youtube.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube" class="social-icon">
-                      </a>
-                      <a href="https://www.pinterest.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/733/733603.png" alt="Pinterest" class="social-icon">
-                      </a>
-                      <a href="https://open.spotify.com/" target="_blank" class="social-link">
-                          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111767.png" alt="Spotify" class="social-icon">
-                      </a>
-                  </div>
-              </div>
-          </div>
-          <div class="text-center mt-4">
-              <p class="footer-text">&copy; 2024 Boutique Express. Todos los derechos reservados.</p>
-          </div>
-      </div>
-  </footer>
+                <!-- Categorías de productos -->
+                <div class="col-md-3">
+                    <h5>Te puede interesar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Rebajas en Ropa de Mujer</a></li>
+                        <li><a href="#">Vestidos</a></li>
+                        <li><a href="#">Tops y bodies</a></li>
+                        <li><a href="#">Jeans</a></li>
+                        <li><a href="#">Pantalones</a></li>
+                        <li><a href="#">Camisetas</a></li>
+                    </ul>
+                </div>
+                <!-- Redes sociales -->
+                <div class="col-md-3">
+                    <h5>Síguenos</h5>
+                    <div class="socialMedia">
+                        <a href="https://www.instagram.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram" class="social-icon">
+                        </a>                        
+                        <a href="https://twitter.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png" alt="Twitter" class="social-icon">
+                        </a>                        
+                        <a href="https://www.tiktok.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046128.png" alt="TikTok" class="social-icon">
+                        </a>                                             
+                        <a href="https://www.snapchat.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384035.png" alt="Snapchat" class="social-icon">
+                        </a>                        
+                        <a href="https://www.youtube.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube" class="social-icon">
+                        </a>
+                        <a href="https://www.pinterest.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733603.png" alt="Pinterest" class="social-icon">
+                        </a>
+                        <a href="https://open.spotify.com/" target="_blank" class="social-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111767.png" alt="Spotify" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="footer-text">&copy; 2024 Boutique Express. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
    <!-- Enlace a Bootstrap JS y dependencias -->
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
