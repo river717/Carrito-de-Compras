@@ -134,6 +134,15 @@ h1, h2 {
     border-bottom-color: #6759ff;
 }
 
+#search-container button{
+    padding: 0.5em 1em;
+    margin-left: 1em;
+    background-color: #6759ff;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
 .button-value{
     padding: 0.5em 1em;
     margin-left: 1em;
