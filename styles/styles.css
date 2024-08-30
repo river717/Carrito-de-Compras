@@ -166,29 +166,6 @@ h1, h2 {
     cursor: pointer;
 }
 
-/* Estilos generales para el modal */
-.modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto; /* Centrar verticalmente */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 100%; /* Ajusta el tamaño de la ventana */
-    max-width: 1000px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
 .close-button {
     color: #aaa;
     float: right;
@@ -203,6 +180,32 @@ h1, h2 {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Estilo para el modal */
+#invoiceModal .modal-dialog {
+    max-width: 800px; /* Ajusta el tamaño del modal */
+    width: 100%;
+}
+
+/* Estilos para las celdas de datos */
+#invoiceModal .modal-body table.table-bordered td {
+    border: 1px solid #d2d9dc;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle; /* Asegura que el contenido esté centrado verticalmente */
+    white-space: nowrap; /* Evita que el texto se desborde */
+}
+
+#invoiceModal .modal-body table.table-bordered td {
+    word-wrap: break-word; /* Permite que el texto se ajuste a la celda */
+    white-space: normal; /* Permite que el texto se envuelva */
+}
+
+.border-bottom {
+    border-bottom: 1px solid #121415; /* Línea debajo de los totales */
+    margin-bottom: 10px;
+}
+
 /* Estilos específicos para la navbar */
 .navbar {
     background: linear-gradient(90deg, #f7f7f7 0%, #e0e0e0 100%); /* Fondo con gradiente suave */

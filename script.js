@@ -141,14 +141,15 @@ async function fetchProducts() {
             renderCart();
         }
         
+        /*funcion para generar la factura*/
         function generateInvoice() {
             const invoiceContent = document.getElementById('invoiceContent');
             invoiceContent.innerHTML = '';  // Limpiar el contenido anterior
             let total = 0;
         
-            invoiceContent.innerHTML += `
+            let invoiceHTML = `
                 <h4>Detalle de la compra</h4>
-                <table class="table">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Cantidad</th>
@@ -163,7 +164,7 @@ async function fetchProducts() {
             cart.forEach(item => {
                 const totalItemPrice = item.price * item.quantity;
                 total += totalItemPrice;
-                invoiceContent.innerHTML += `
+                invoiceHTML += `
                     <tr>
                         <td>${item.quantity}</td>
                         <td>${item.title}</td>
@@ -176,23 +177,26 @@ async function fetchProducts() {
             const iva = total * 0.13; // IVA del 13%
             const totalWithTax = total + iva;
         
-            invoiceContent.innerHTML += `
+            invoiceHTML += `
                     </tbody>
                 </table>
                 <hr>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between border-bottom pb-2">
                     <h5>Total antes de IVA:</h5>
                     <h5>$${total.toFixed(2)}</h5>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between border-bottom pb-2">
                     <h5>IVA (13%):</h5>
                     <h5>$${iva.toFixed(2)}</h5>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between border-bottom pb-2">
                     <h4>Total con impuesto:</h4>
                     <h4>$${totalWithTax.toFixed(2)}</h4>
                 </div>
             `;
+        
+            // Asigna el HTML generado al contenedor del modal
+            invoiceContent.innerHTML = invoiceHTML;
         
             // Vaciar el carrito
             cart = [];
@@ -201,8 +205,9 @@ async function fetchProducts() {
             // Mostrar el modal de la factura
             const invoiceModal = new bootstrap.Modal(document.getElementById('invoiceModal'));
             invoiceModal.show();
-        }
+        }        
         
+        /*esta funcion no esta haciendo nada*/
         function continueShopping() {
             document.getElementById('generateInvoice').innerHTML = '';
             renderProducts();
