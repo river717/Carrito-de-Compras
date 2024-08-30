@@ -14,7 +14,7 @@ async function fetchProducts() {
             }
         }
         
-        function renderProducts() {
+       /* function renderProducts() {
             const productList = document.getElementById('product-list');
             productList.innerHTML = '';
             
@@ -52,6 +52,55 @@ async function fetchProducts() {
 
             // Llamada inicial para obtener productos cuando se carga la página
             fetchProducts();
+            */
+
+            function renderProducts(filteredProducts = products) {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = ''; // Limpiar la lista de productos
+                
+                if (filteredProducts.length === 0) {
+                    productList.innerHTML = '<p>No se encontraron productos.</p>'; // Mensaje si no hay productos que coincidan con la búsqueda
+                    return;
+                }
+            
+                filteredProducts.forEach(product => {
+                    const productElement = document.createElement('div');
+                    productElement.classList.add('col-md-3', 'mb-4');
+            
+                    productElement.innerHTML = `
+                        <div class="card h-100">
+                            <img src="${product.image}" class="card-img-top" alt="${product.title}">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${product.title}</h5>
+                                <p class="card-text"><strong>Precio: $${product.price}</strong></p>
+                                <button class="btn btn-custom mt-auto" onclick="addToCart(${product.id})">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    `;
+                    productList.appendChild(productElement);
+                });
+            }
+            
+            // Función para filtrar productos por título
+            function searchProducts() {
+                const searchTerm = document.getElementById('search-input').value.toLowerCase();
+                console.log('Término de búsqueda:', searchTerm); // Verifica el término de búsqueda
+            
+                const filteredProducts = products.filter(product => 
+                    product.title.toLowerCase().includes(searchTerm)
+                );
+                console.log('Productos filtrados:', filteredProducts); // Verifica los productos filtrados
+            
+                renderProducts(filteredProducts); // Renderizar productos filtrados
+            }
+            
+            // Añadir el evento de clic al botón de búsqueda
+            document.getElementById('search').addEventListener('click', searchProducts);
+            
+            // Llamada inicial para obtener productos cuando se carga la página
+            fetchProducts();
+
+// 55 - 101
         
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
