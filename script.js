@@ -197,22 +197,34 @@ async function fetchProducts() {
         
             // Asigna el HTML generado al contenedor del modal
             invoiceContent.innerHTML = invoiceHTML;
-        
-            // Vaciar el carrito
-            cart = [];
-            renderCart();
-        
             // Mostrar el modal de la factura
             const invoiceModal = new bootstrap.Modal(document.getElementById('invoiceModal'));
             invoiceModal.show();
-        }        
+        }       
+        function pagar() {
+            // Limpiar el carrito
+            cart = [];
+            
+            // Volver a renderizar el carrito para mostrar que está vacío
+            renderCart();
+            // Mostrar un mensaje de confirmación o realizar otras acciones adicionales
+            alert("Gracias por su compra. El carrito ha sido limpiados.");
+        }
         
-        /*esta funcion no esta haciendo nada*/
+        
+
+
+
+
+
+
+        
+        /*esta funcion no esta haciendo nada
         function continueShopping() {
             document.getElementById('generateInvoice').innerHTML = '';
             renderProducts();
         }
-        
+        /*
         // Función para alternar la visibilidad del carrito
         /*function toggleCart() {
             const cart = document.getElementById('shopping-cart');
