@@ -35,6 +35,23 @@ async function fetchProducts() {
                 productList.appendChild(productElement);
             });
         }
+
+        // Función para filtrar productos por título
+            function searchProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            console.log('Término de búsqueda:', searchTerm);//prueba
+            const filteredProducts = products.filter(product => 
+                product.title.toLowerCase().includes(searchTerm)
+            ); 
+            console.log('Productos filtrados:', filteredProducts); // prueba los productos filtrados
+            renderProducts(filteredProducts);
+            }   
+
+           // Añadir el evento de clic al botón de búsqueda
+        document.getElementById('search').addEventListener('click', searchProducts);
+
+            // Llamada inicial para obtener productos cuando se carga la página
+            fetchProducts();
         
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
