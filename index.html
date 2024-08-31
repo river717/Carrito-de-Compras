@@ -6,6 +6,7 @@
     <title>Carrito de Compras - Boutique Express</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -45,8 +46,14 @@
         </div>
     </div>
     <!-- Ventana del carrito -->
-    <div id="shopping-cart" class="cart hidden">
-        <h2>Carrito de Compras</h2>
+    <div id="shopping-cart" class="cart">
+        <div class="d-flex justify-content-between align-items-center">
+            <strong>Carrito de Compras</strong>
+            <button class="navbar-toggler" type="button" onclick="toggleCart()">
+                <i class="bi bi-x-circle-fill"></i>
+            </button>
+        </div>
+        <hr class="my-2">
         <div id="cart-content"></div>
         <button id="checkout-button" onclick="generateInvoice()">Confirmar Compra</button>
     </div>

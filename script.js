@@ -211,6 +211,21 @@ async function fetchProducts() {
             alert("Gracias por su compra. El carrito ha sido limpiados.");
         }
         
+        //Sección del carrito
+        function toggleCart() {
+            const cart = document.getElementById('shopping-cart');
+            if (cart.classList.contains('visible')) {
+                // Si es visible, oculta el carrito
+                cart.style.right = '-300px';
+                cart.style.opacity = '0';
+            } else {
+                // Si no es visible, muestra el carrito
+                cart.style.right = '0';
+                cart.style.opacity = '1';
+            }
+            cart.classList.toggle('visible');
+            console.log("clic");
+        }
         
 
 
@@ -223,14 +238,8 @@ async function fetchProducts() {
         function continueShopping() {
             document.getElementById('generateInvoice').innerHTML = '';
             renderProducts();
-        }
-        /*
-        // Función para alternar la visibilidad del carrito
-        /*function toggleCart() {
-            const cart = document.getElementById('shopping-cart');
-            cart.classList.toggle('visible');
-        }   */     
-            
+        } */
+        
         // Inicializa la lista de productos al cargar la página
         window.onload = fetchProducts;
         
