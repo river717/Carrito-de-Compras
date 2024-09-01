@@ -82,16 +82,20 @@ function renderCart() {
     total += totalItemPrice;
     const cartItemElement = document.createElement("div");
     cartItemElement.innerHTML = `
-                    <div>
-                        <h4>${item.title}</h4>
-                        <p>Cantidad: ${item.quantity}</p>
+                    <div class="mb-3">
+                        <strong>${item.title}</strong>
+                        <button type="button" class="navbar-toggler" onclick="removeFromCart(${item.id})">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                        <p class="mb-0">Cantidad: ${item.quantity}</p>
                         <p>Total: $${totalItemPrice}</p>
-                        <button onclick="removeFromCart(${item.id})">Eliminar</button>
                     </div>
                 `;
     cartContent.appendChild(cartItemElement);
   });
-  cartContent.innerHTML += `<h3>Total General: $${total}</h3>`;
+  cartContent.innerHTML += `<div class="alert alert-success" role="alert">
+                                <p class="text-center mb-0"><strong>TOTAL GENERAL: $${parseFloat(total.toFixed(2))}</strong></p>
+                            </div>`;
 }
 
 function removeFromCart(productId) {
