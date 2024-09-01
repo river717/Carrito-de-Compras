@@ -61,8 +61,8 @@ h1, h2 {
     min-height: 100px; 
 }
 .btn-custom {
-    color: #f39c12;
-    background-color: #888;
+    color: white;
+    background-color: #000000;
     border-radius: 5px;
 }
 .btn-custom:hover {
@@ -136,7 +136,7 @@ h1, h2 {
 #search-container button{
     padding: 0.5em 1em;
     margin-left: 1em;
-    background-color: #6759ff;
+    background-color: #000000;
     color: #ffffff;
     border-radius: 5px;
     margin-top: 0.5em;
