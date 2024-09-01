@@ -61,6 +61,7 @@ function searchProducts() {
 document.getElementById("search").addEventListener("click", searchProducts);
 
 function addToCart(productId) {
+  let totalProductos;
   const product = products.find((p) => p.id === productId);
   const cartItem = cart.find((item) => item.id === productId);
 
@@ -69,6 +70,9 @@ function addToCart(productId) {
   } else {
     cart.push({ ...product, quantity: 1 });
   }
+  totalProductos = cart.length;
+  document.getElementById("totalProductos").innerHTML = totalProductos;
+  console.log(totalProductos);
   renderCart();
 }
 
@@ -175,6 +179,7 @@ function pagar() {
   renderCart();
   // Mostrar un mensaje de confirmación o realizar otras acciones adicionales
   alert("Gracias por su compra. El carrito ha sido limpiados.");
+  document.getElementById("totalProductos").innerHTML = 0;
 }
 
 

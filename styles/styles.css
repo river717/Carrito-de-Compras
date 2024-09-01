@@ -216,7 +216,7 @@ h1, h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between; /* Alinear items al espacio disponible */
+    justify-content: space-between;
     align-items: center;
     margin: 0;
     transition: background 0.3s ease;
@@ -341,5 +341,11 @@ ul.list-unstyled a:hover {
 .social-link:hover .social-icon {
     transform: scale(1.1); /* Aumentar tamaño del icono al pasar el ratón */
     filter: brightness(0.8); /* Disminuir brillo al pasar el ratón */
+}
+
+@media (width <= 700px){
+    .navbar-brand {
+        font-size: 1.30rem;
+    }
 }
 
