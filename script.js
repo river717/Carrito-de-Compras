@@ -72,11 +72,11 @@ function addToCart(productId) {
   }
   totalProductos = cart.length;
   document.getElementById("totalProductos").innerHTML = totalProductos;
-  console.log(totalProductos);
-  renderCart();
+  renderCart(totalProductos);
 }
 
-function renderCart() {
+function renderCart(totalProductos) {
+  document.getElementById("totalProductos").innerHTML = totalProductos;
   const cartContent = document.getElementById("cart-content");
   cartContent.innerHTML = "";
   let total = 0;
@@ -103,8 +103,10 @@ function renderCart() {
 }
 
 function removeFromCart(productId) {
+  let productosActuales = document.getElementById("totalProductos").innerHTML;
+  document.getElementById("totalProductos").innerHTML = productosActuales --;
   cart = cart.filter((item) => item.id !== productId);
-  renderCart();
+  renderCart(productosActuales);
 }
 
 /*funcion para generar la factura*/
@@ -196,7 +198,6 @@ function toggleCart() {
     cart.style.opacity = "1";
   }
   cart.classList.toggle("visible");
-  console.log("clic");
 }
 
 // Inicializa la lista de productos al cargar la página
